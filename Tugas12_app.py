@@ -2,38 +2,26 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# =========================
-# TITLE
-# =========================
+
 st.title("Dashboard Elektro – Analisis Daya Listrik")
 
-# =========================
-# HEADER
-# =========================
+
 st.header("Perhitungan dan Visualisasi Daya Listrik")
 
-# =========================
-# SUBHEADER
-# =========================
+
 st.subheader("Data Peralatan Elektronik Rumah Tangga")
 
-# =========================
-# TEXT (PARAGRAF)
-# =========================
+=
 st.text(
     "Aplikasi ini digunakan untuk menampilkan data beberapa "
     "peralatan elektronik beserta tegangan, arus, dan daya listriknya. "
     "Daya listrik dihitung menggunakan rumus P = V × I."
 )
 
-# =========================
-# CAPTION
-# =========================
+
 st.caption("Bidang Elektro – Kelistrikan Dasar")
 
-# =========================
-# DATA
-# =========================
+
 data = {
     "Peralatan": ["Lampu", "Kipas Angin", "Televisi", "Rice Cooker", "Setrika"],
     "Tegangan (V)": [220, 220, 220, 220, 220],
@@ -42,18 +30,14 @@ data = {
 
 df = pd.DataFrame(data)
 
-# Hitung Daya
+
 df["Daya (Watt)"] = df["Tegangan (V)"] * df["Arus (A)"]
 
-# =========================
-# DATAFRAME
-# =========================
+
 st.subheader("Tabel Data Listrik")
 st.dataframe(df)
 
-# =========================
-# CODE (POTONGAN CODE)
-# =========================
+
 st.subheader("Rumus Perhitungan Daya Listrik")
 st.code("""
 # Rumus daya listrik
@@ -66,9 +50,7 @@ daya = tegangan * arus
 print(daya)
 """, language="python")
 
-# =========================
-# CHART
-# =========================
+
 st.subheader("Grafik Daya Listrik Peralatan")
 
 fig, ax = plt.subplots()
@@ -78,4 +60,5 @@ ax.set_ylabel("Daya (Watt)")
 ax.set_title("Perbandingan Daya Listrik")
 
 st.pyplot(fig)
+
 
